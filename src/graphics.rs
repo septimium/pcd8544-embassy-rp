@@ -61,10 +61,10 @@ pub trait GraphicsMode<ERR> {
 impl<SPI, DC, CE, RST, LIGHT, ERR> GraphicsMode<ERR> for PCD8544<SPI, DC, CE, RST, LIGHT>
 where
     SPI: SpiWrite<u8, Error = ERR>,
-    DC: OutputPin<Error = ERR>,
-    CE: OutputPin<Error = ERR>,
-    RST: OutputPin<Error = ERR>,
-    LIGHT: OutputPin<Error = ERR>,
+    DC: OutputPin,
+    CE: OutputPin,
+    RST: OutputPin,
+    LIGHT: OutputPin,
 {
 
     fn flush(&mut self) -> Result<(), PCDError> {
@@ -96,10 +96,10 @@ where
 impl<SPI, DC, CE, RST, LIGHT, ERR> DrawTarget for PCD8544<SPI, DC, CE, RST, LIGHT>
 where
     SPI: SpiWrite<u8, Error = ERR>,
-    DC: OutputPin<Error = ERR>,
-    CE: OutputPin<Error = ERR>,
-    RST: OutputPin<Error = ERR>,
-    LIGHT: OutputPin<Error = ERR>,
+    DC: OutputPin,
+    CE: OutputPin,
+    RST: OutputPin,
+    LIGHT: OutputPin,
 {
     type Color = BinaryColor;
     type Error = core::convert::Infallible;
@@ -134,10 +134,10 @@ where
 impl<SPI, DC, CE, RST, LIGHT, ERR> OriginDimensions for PCD8544<SPI, DC, CE, RST, LIGHT>
 where
     SPI: SpiWrite<u8, Error = ERR>,
-    DC: OutputPin<Error = ERR>,
-    CE: OutputPin<Error = ERR>,
-    RST: OutputPin<Error = ERR>,
-    LIGHT: OutputPin<Error = ERR>,
+    DC: OutputPin,
+    CE: OutputPin,
+    RST: OutputPin,
+    LIGHT: OutputPin,
 {
     // return the size of the screen in pixels, so embedded_graphics knows how to properly operate
     // on it.
